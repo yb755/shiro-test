@@ -42,7 +42,7 @@ public class ShiroTest {
 		// 尝试进行登录用户，如果登录失败了，我们进行一些处理
 		if (!currentUser.isAuthenticated()) {// 如果用户没有登录过
 			// new UsernamePasswordToken(用户名,密码)
-			UsernamePasswordToken token = new UsernamePasswordToken("test", "123456");
+			UsernamePasswordToken token = new UsernamePasswordToken("lisi", "lisi");
 			token.setRememberMe(true);// 是否记住用户
 			try {
 				currentUser.login(token);
@@ -66,10 +66,10 @@ public class ShiroTest {
 				} else {
 					log.info("您没有perm1权限");
 				}
-				if (currentUser.isPermitted("guest")) {
-					log.info("您有guest权限");
+				if (currentUser.isPermitted("department:query")) {
+					log.info("您有department:query权限");
 				} else {
-					log.info("您没有guest权限");
+					log.info("您没有department:query权限");
 				}
 				// 登出
 				currentUser.logout();
