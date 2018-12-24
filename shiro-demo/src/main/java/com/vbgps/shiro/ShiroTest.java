@@ -22,9 +22,9 @@ public class ShiroTest {
 		// 1. 这里的SecurityManager是org.apache.shiro.mgt.SecurityManager
 		// 而不是java.lang.SecurityManager
 		// 加载配置文件
-		Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
+		Factory<org.apache.shiro.mgt.SecurityManager> factory = new IniSecurityManagerFactory("classpath:shiro.ini");
 		// 2.解析配置文件，并且返回一些SecurityManger实例
-		SecurityManager securityManager = factory.getInstance();
+		org.apache.shiro.mgt.SecurityManager securityManager = factory.getInstance();
 		// 3.将SecurityManager绑定给SecurityUtils
 		SecurityUtils.setSecurityManager(securityManager);
 		// 安全操作，Subject是当前登录的用户
